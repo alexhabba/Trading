@@ -2,6 +2,7 @@ package com.example.Trade.repository;
 
 import com.example.Trade.model.Tick;
 
+import java.util.List;
 import java.util.Map;
 
 public interface TickRepository {
@@ -17,5 +18,7 @@ public interface TickRepository {
     void saveAll(Map<String, Tick> map);
 
     long getSize();
+
+    List<Tick> getAllTicks();
 
 }

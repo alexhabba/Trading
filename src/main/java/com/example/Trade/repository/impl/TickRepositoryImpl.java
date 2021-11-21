@@ -8,6 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -52,5 +53,10 @@ public class TickRepositoryImpl implements TickRepository {
     @Override
     public long getSize() {
        return hashOperations.size(TICKS);
+    }
+
+    @Override
+    public List<Tick> getAllTicks() {
+        return hashOperations.values(TICKS);
     }
 }

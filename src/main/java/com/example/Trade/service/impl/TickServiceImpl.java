@@ -56,6 +56,11 @@ public class TickServiceImpl implements TickService {
         repository.delete(id);
     }
 
+    @Override
+    public List<Tick> getAllTicks() {
+        return repository.getAllTicks();
+    }
+
     @Scheduled(fixedDelay = 20000)
     public void deleteElementRedis() {
         LOG.info("зашли в метод deleteElementRedis");
