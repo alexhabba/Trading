@@ -2,6 +2,7 @@ package com.example.Trade.service;
 
 import com.example.Trade.model.Tick;
 
+import java.util.List;
 import java.util.Map;
 
 public interface TickService {
@@ -17,5 +18,7 @@ public interface TickService {
     long getSize();
 
     void delete(String id);
+
+    List<Tick> getAllTicks();
 
 }

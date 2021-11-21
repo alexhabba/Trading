@@ -8,6 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -50,5 +51,9 @@ public class BarRepositoryImpl implements BarRepository {
     @Override
     public long getSize(String key) {
         return hashOperations.size(key);
+    }
+
+    public List<Bar> getListBars(String key) {
+        return hashOperations.values(key);
     }
 }
