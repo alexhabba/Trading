@@ -1,6 +1,7 @@
-package com.example.Trade.dao;
+package com.example.Trade.repository.impl;
 
 import com.example.Trade.model.Tick;
+import com.example.Trade.repository.TickRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;

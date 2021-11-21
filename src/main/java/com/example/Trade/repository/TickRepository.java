@@ -1,4 +1,4 @@
-package com.example.Trade.dao;
+package com.example.Trade.repository;
 
 import com.example.Trade.model.Tick;
 
