@@ -49,7 +49,7 @@ public class BarsM1Impl implements BarsM1 {
                     int currentMinute = Integer.parseInt(time[1]);
                     if (tempMinute == currentMinute) {
                         // обьем
-                        if (operation.equals("b")) {
+                        if (operation.equals("buy")) {
                             volumeBuy += vol;
                         } else {
                             volumeSell += vol;
