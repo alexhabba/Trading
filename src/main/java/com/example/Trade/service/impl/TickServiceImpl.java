@@ -16,7 +16,7 @@ public class TickServiceImpl implements TickService {
     private static final Logger LOG = Logger.getLogger(TickServiceImpl.class);
 
     @Autowired
-    TickRepository repository;
+    private TickRepository repository;
 
     @Override
     public void save(Tick tick) {

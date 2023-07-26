@@ -27,6 +27,15 @@ public class Tick implements Serializable {
         this.symbol = symbol;
     }
 
+    public Tick(int volume, double price, String operation, String date, String time, String mls) {
+        this.volume = volume;
+        this.price = price;
+        this.operation = operation;
+        this.date = date;
+        this.time = time;
+        this.mls = mls;
+    }
+
     public int getVolume() {
         return volume;
     }
