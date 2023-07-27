@@ -1,7 +1,7 @@
 package com.example.Trade.service.impl;
 
 import com.example.Trade.model.Tick;
-import com.example.Trade.repository.TickRepository;
+import com.example.Trade.repositoryRedis.TickRepository;
 import com.example.Trade.service.TickService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
