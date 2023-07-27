@@ -1,23 +1,10 @@
 package com.example.Trade.repository;
 
-import com.example.Trade.model.Bar;
+import com.example.Trade.service.impl.Bar;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-import java.util.Map;
+import java.util.UUID;
 
-public interface BarRepository {
 
-    void save(String key, Bar bar);
-
-    Bar findById(String id);
-
-    Map<String, Bar> findAll(String key);
-
-    void delete(String id);
-
-    void saveAll(String key, Map<String, Bar> map);
-
-    long getSize(String key);
-
-    List<Bar> getListBars(String key);
+public interface BarRepository extends JpaRepository<Bar, UUID> {
 }

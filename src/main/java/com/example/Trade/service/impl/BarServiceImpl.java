@@ -1,7 +1,7 @@
 package com.example.Trade.service.impl;
 
 import com.example.Trade.model.Bar;
-import com.example.Trade.repository.BarRepository;
+import com.example.Trade.repositoryRedis.BarRepository;
 import com.example.Trade.service.BarService;
 import com.example.Trade.service.BarsM1;
 import org.springframework.beans.factory.annotation.Autowired;
