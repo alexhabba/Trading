@@ -2,8 +2,8 @@ package com.example.Trade;
 
 import com.example.Trade.model.Tick;
 import com.example.Trade.repository.BarRepository;
-import com.example.Trade.service.impl.Bar;
-import com.example.Trade.service.impl.BarPrice;
+import com.example.Trade.entity.Bar;
+import com.example.Trade.entity.BarPrice;
 import com.example.Trade.service.impl.FileOperations;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.nio.file.Path;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,6 +38,8 @@ public class TradingApplication {
                 .interval(60)
                 .volumeBuy(150)
                 .volumeSell(350)
+                .symbol(Symbol.SANDP)
+                .dateTime(LocalDateTime.now())
                 .barPrices(List.of(BarPrice.builder().price(1.2).volumeBuy(12).volumeSell(122).build()))
                 .build();
         Bar save = barRepository.save(bar);
