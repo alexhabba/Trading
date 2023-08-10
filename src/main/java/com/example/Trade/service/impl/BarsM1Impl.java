@@ -36,7 +36,10 @@ public class BarsM1Impl implements BarsM1 {
 
         allTicks.stream()
                 .filter(tick -> tick.getMls().length() == 14)
-                .map(tick -> tick.setMls(tick.getMls().substring(0, 13)))
+                .peek(tick -> {
+                    String substring = tick.getMls().substring(0, 13);
+                    tick.setMls(substring);
+                })
                 .sorted(Comparator.comparing(Tick::getMls))
                 .forEach(tick -> {
                     int vol = tick.getVolume();

@@ -79,8 +79,4 @@ public class Bar {
     @Enumerated(EnumType.STRING)
     private Symbol symbol;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "bar_id", referencedColumnName = "id")
-    private List<BarPrice> barPrices;
-
 }

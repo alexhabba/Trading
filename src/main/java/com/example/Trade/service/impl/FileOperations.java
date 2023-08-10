@@ -2,7 +2,6 @@ package com.example.Trade.service.impl;
 
 import com.example.Trade.model.Tick;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -10,7 +9,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class FileOperations {
@@ -29,7 +27,7 @@ public class FileOperations {
             }
             System.out.println(pattern);
             String nameDirectory = getNameDirectory(pathFrom);
-                Path dir = Path.of("TICKS/" + nameDirectory.toUpperCase());
+            Path dir = Path.of("TICKS/" + nameDirectory.toUpperCase());
             if (!Files.exists(dir)) {
                 Files.createDirectory(dir);
             }
@@ -53,14 +51,28 @@ public class FileOperations {
         try {
             bytes = Files.readAllBytes(path);
             Arrays.asList(new String(bytes).split("\\n"))
-                    .forEach(str -> {
-                        String[] s = str.split("\\s+");
-                        Tick tick = new Tick(Integer.parseInt(s[0]), Double.parseDouble(s[1]), s[2], s[3], s[4], s[5]);
-                        list.add(tick);
-                    });
+                    .forEach(str -> addTickToList(path, list, str));
         } catch (IOException e) {
             e.printStackTrace();
         }
         return list;
+    }
+
+    private static void addTickToList(Path path, List<Tick> list, String str) {
+        String[] s = str.split("\\s+");
+        Tick tick = getTick(s, path);
+        list.add(tick);
+    }
+
+    private static Tick getTick(String[] s, Path path) {
+        return Tick.builder()
+                .volume(Integer.parseInt(s[0]))
+                .price(Double.parseDouble(s[1]))
+                .operation(s[2])
+                .date(s[3])
+                .time(s[4])
+                .mls(s[5])
+                .symbol(path.getFileName().toString().split("_")[0])
+                .build();
     }
 }
